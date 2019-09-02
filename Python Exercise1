@@ -1,0 +1,13 @@
+a=" bottles of beer on the wall, "
+b=" bottles of beer."
+c="Take one down and pass it around, "
+d=" bottles of beer on the wall."
+for x in reversed(range(0,100)):   
+    if x>2:
+        print (str(x)+a+str(x)+b+"\n"+c+str(x-1)+d)
+    elif x==2:
+        print (str(x)+a+str(x)+b+"\n"+c+str(x-1)+" bottle of beer on the wall.")
+    elif x==1:
+        print(str(x)+" bottle of beer on the wall, "+str(x)+" bottle of beer.\n"+c+"no more bottles of beer on the wall.")
+    elif x==0:
+        print("No more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.")
