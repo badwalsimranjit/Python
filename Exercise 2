@@ -1,0 +1,80 @@
+mport csv
+import re
+clean = []
+invalid = []
+raw = []
+
+
+#Open Dirty_Names.csv file
+
+dirtyfile = open('DirtyNames.csv' ,'r')
+for name in dirtyfile:
+    dirty = (name.split(","))
+for i in range(len(dirty)):
+    x=re.search('[A-Za-z]',dirty[i])
+    if x:
+        raw.append(dirty[i])
+    else:
+        invalid.append(dirty[i])
+
+
+#Open 10,000 name list
+
+one_file = open('10000DirtyNames.csv' ,'r')
+for name1 in one_file:
+    dirty1 = (name1.split(","))
+for i in range(len(dirty1)):
+    x=re.search('[A-Za-z]',dirty1[i])
+    if x:
+        raw.append(dirty1[i])
+    else:
+        invalid.append(dirty1[i])
+
+
+#Open 100,000 name list
+
+two_file = open('100000DirtyNames.csv' ,'r')
+for name2 in two_file:
+    dirty2 = (name2.split(","))
+for i in range(len(dirty)):
+    x=re.search('[A-Za-z]',dirty2[i])
+    if x:
+        raw.append(dirty2[i])
+    else:
+        invalid.append(dirty2[i])
+
+
+#Open 10,000,000 name list
+
+three_file = open('10000000DirtyNames.csv' ,'r')
+for name3 in three_file:
+    dirty3 = (name3.split(","))
+for i in range(len(dirty3)):
+    x=re.search('[A-Za-z]',dirty3[i])
+    if x:
+        raw.append(dirty3[i])
+    else:
+        invalid.append(dirty3[i])
+
+
+#Convert first letter of name to Upper Case and the rest to Lower Case
+        
+for raw_name in raw:
+    clean_name = raw_name.capitalize()
+    clean.append(clean_name)
+
+
+#Create Clean_Names.csv file
+
+with open ('CleanNames.csv', 'w') as csvfile1:
+    filewriter = csv.writer(csvfile1, delimiter=',')
+    filewriter.writerow(clean)
+
+
+#Create Invalid_Names.csv file
+    
+with open ('InvalidNames.csv', 'w') as csvfile2:
+    filewriter = csv.writer(csvfile2, delimiter=',')
+    filewriter.writerow(invalid)
+
+    
